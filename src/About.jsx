@@ -1,33 +1,41 @@
+
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Helmet } from "react-helmet";
+import DocumentMeta from 'react-document-meta';
+
 
 import {
   Link,
 } from "react-router-dom";
 
-function App() {
+const meta = {
+  title: 'Some Meta Title',
+  description: 'I am a description, and I can create multiple tags',
+  canonical: 'http://example.com/path/to/page',
+  image: "https://res.cloudinary.com/alonexx/image/upload/v1714635762/image_10_v5dnsb.png",
+  meta: {
+    charset: 'utf-8',
+    image: "https://res.cloudinary.com/alonexx/image/upload/v1714635762/image_10_v5dnsb.png",
+    og: {
+      image: "https://res.cloudinary.com/alonexx/image/upload/v1714635762/image_10_v5dnsb.png"
+    },
+    twitter: {
+      image: "https://res.cloudinary.com/alonexx/image/upload/v1714635762/image_10_v5dnsb.png"
+    },
+    name: {
+      keywords: 'react,meta,document,html,tags'
+    }
+  }
+};
+function About() {
   const [count, setCount] = useState(0)
 
-
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>My Title</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-        <meta name="twitter:title" content="APP HOME PAGE" />
-        <meta name="twitter:description" content="APP HOME PAGE" />
-        <meta name="twitter:image" content="https://picsum.photos/200" />
-        <meta name="twitter:card" content="summary_large_image" />
-
-        <meta name="og:title" content="APP HOME PAGE" />
-        <meta name="og:description" content="APP HOME PAGE" />
-        <meta name="og:image" content="https://picsum.photos/200" />
-      </Helmet>
+    <DocumentMeta {...meta}>
       <div>
+        <h1>This is the about page</h1>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -40,7 +48,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <Link to="about">About Us</Link>
+        <Link to="/">Home</Link>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
@@ -48,8 +56,8 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </DocumentMeta>
   )
 }
 
-export default App
+export default About

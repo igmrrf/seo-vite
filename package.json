@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "react": "^18.2.0",
+    "react-document-meta": "^3.0.0-beta.2",
     "react-dom": "^18.2.0",
-    "react-snap": "^1.23.0"
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
